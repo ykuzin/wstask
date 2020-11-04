@@ -3,10 +3,11 @@ const mongoose = require("mongoose")
 const router = require("./router")
 const socket = require("./ws")
 const app = express()
+const {MONGO_URI} = process.env.MONGO_URI
 try {
     mongoose
         .connect(
-            "mongodb+srv://UserTest:12345@cluster0.ia5jk.mongodb.net/datas?retryWrites=true&w=majority",
+            MONGO_URI,
             { useNewUrlParser: true, useUnifiedTopology: true }
         )
         .then(() => console.log("Connection is open"))

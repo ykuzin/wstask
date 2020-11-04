@@ -2,8 +2,8 @@ const Data = require("../models/Data")
 let interval = null
 
 const WebSocket = require("ws")
-const url = "ws://"
-const ws = new WebSocket(url)
+const {SOCKET_URI} = process.env.SOCKET_URI
+const ws = new WebSocket(SOCKET_URI)
 let localStorage = []
 
 ws.on("open", function greet() {
